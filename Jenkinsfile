@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  
+  tools{
+    nodejs 'nodejs' 	
+    }
   stages {
     stage('build') {
       steps {
@@ -22,20 +26,12 @@ pipeline {
       }
     }
 
-    stage('archive') {
-      steps {
-        archiveArtifacts '**/distribution/*.zip'
-      }
-    }
-
-  }
-  tools {
-    nodejs 'nodejs'
-  }
+    
   post {
     always {
       echo 'this pipeline has completed...'
     }
 
   }
+}
 }
