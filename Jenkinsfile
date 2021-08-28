@@ -25,13 +25,12 @@ pipeline {
         sh 'npm run package'
       }
     }
+}    
 
-    
   post {
     always {
       echo 'this pipeline has completed...'
     }
-
   }
 }
-}
+
